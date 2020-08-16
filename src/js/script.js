@@ -28,6 +28,7 @@ $('#buttonStartCall').hover(
                 });
                     if(deviceArray.includes("audioinput"))
                     {
+                        document.querySelector("#buttonStartCall").style.opacity = '0.6';
                         callAllowed = true;
                     }
                     else{

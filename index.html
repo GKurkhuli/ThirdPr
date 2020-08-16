@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="src/css/style.css">
+        <link rel="stylesheet" type="text/css" href="src/css/queries.css">
+        <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+       
+        <script type="module" src="https://unpkg.com/ionicons@5.1.2/dist/ionicons/ionicons.esm.js"></script>
+
+        <title>Project #3</title>
+    </head>
+    <body>
+        <button class="toggleButton" id = "toggleButtonID">Toggle</button>
+
+        <div class="pageApp" id="mainApp">
+            <section class="caller">
+                <h1 class="caller__userName">Unknown Visitor</h1>
+                <button class="caller__minimize-button" id="minimizeButton"><img class="caller__minimize-button__icon" src="src/img/minimize.svg" alt=""></button><!--need other-->
+                <h1 class="caller__call-status">calling</h1>
+                <div class="caller__avatar__circle">
+                    <div class= "caller__avatar__circle_0"></div>
+                    <div class= "caller__avatar__circle_1"></div>
+                    <div class= "caller__avatar__circle_2"></div>
+                </div>
+
+                <div class = "caller__avatar"><img class="caller__avatar__icon" src="src/img/avatar.svg" alt=""></div>
+
+                <ul class="caller__link-list">
+                    <a class="caller__link-list__link" href="#" target="_blank">
+                        <ion-icon class="caller__link-list__link__icon" name="logo-windows"></ion-icon>
+                    </a>
+                    <a class="caller__link-list__link" href="#" target="_blank">
+                        <ion-icon class="caller__link-list__link__icon" name="tv-outline"></ion-icon><!--need other-->
+                    </a>
+                    <a class="caller__link-list__link" href="#" target="_blank">
+                        <ion-icon class="caller__link-list__link__icon" name="logo-chrome"></ion-icon>
+                    </a>
+                    <a class="caller__link-list__link" href="#" target="_blank">
+                        <ion-icon class="caller__link-list__link__icon" name="ellipsis-horizontal"></ion-icon><!--need other-->
+                    </a>
+                </ul>
+            </section>
+
+            <section class="call">
+                    <div class="call__allert" id = "alertMPdisabled">
+                        <ion-icon class = "call__allert__icon" name="alert-circle-outline"></ion-icon>                        <h2 class="call__allert__text">
+                           <span class="call__allert__text__header">We are unable to initialize your session.<br></span>
+                           <span class="call__allert__text__content">This sometimes happens when microphone access has been disabled</span> 
+                        </h2>
+                    </div>
+                
+                    <button class="call__button call__button-green" id = "buttonStartCall"><img class="call__button__phone call__button__phone-green" src="src/img/phone.png" alt=""></button>
+                    <div class="call__time" id="time">00:00</div>
+                    <button class="call__button call__button-red" id = "buttonEndCall"><img class="call__button__phone call__button__phone-red" src="src/img/phone.png" alt=""></button> 
+            </section>
+        </div>
+        
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="src/js/script.js"></script>
+    </body>
+</html>

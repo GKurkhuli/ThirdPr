@@ -17,12 +17,30 @@ $('#buttonStartCall').hover(
     function(){
         navigator.mediaDevices.getUserMedia({audio:true})
         .then(function(){
-            callAllowed = true;
             document.querySelector("#buttonStartCall").style.opacity = '1';
             document.querySelector("#buttonEndCall").style.opacity = '0.6';
+            if(!callAllowed){
+                var deviceArray = [];
+                navigator.mediaDevices.enumerateDevices()
+                .then(function(devices) {
+                    devices.forEach(function(device) {
+                        deviceArray.push(device.kind)
+                });
+                    if(deviceArray.includes("audioinput"))
+                    {
+                        callAllowed = true;
+                    }
+                    else{
+                        document.querySelector(".call__allert__text__content").innerHTML = "There was no audio input device found";
+                        $('#alertMPdisabled').show("fast");
+                        callAllowed = false;
+                    }
+                }); 
+            }             
         })
         .catch(function(){
             document.querySelector("#buttonStartCall").style.opacity = '0.6';
+            document.querySelector(".call__allert__text__content").innerHTML = "This sometimes happens when microphone access has been disabled";
             $('#alertMPdisabled').show("fast");
             callAllowed = false;
         });

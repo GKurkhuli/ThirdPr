@@ -42,7 +42,7 @@ $('#buttonStartCall').click(function(){
         for(var i = 0; i < 3; i++)
             $('.caller__avatar__circle_'+i).show(500);
         totalSeconds = 0;
-        timeInterval=setInterval(timer,1000);//update timer each second   
+        timeInterval = setInterval(timer,1000);//update timer each second   
         callInProgress = true;
     }
 });
@@ -52,7 +52,6 @@ $('#buttonEndCall').click(function(){
 });
 
 function endCall(){
-    
     document.querySelector('#buttonStartCall').style.opacity='1';
     document.querySelector('#buttonEndCall').style.opacity='0.6';
     for(var i = 0; i < 3; i++)
@@ -99,7 +98,6 @@ function timer()
 
     navigator.mediaDevices.getUserMedia({audio:true}).catch(function(){
         endCall();
-        callAllowed =false;
         document.querySelector('#buttonStartCall').style.opacity='0.6';
     });
 }

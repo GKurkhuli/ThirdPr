@@ -17,8 +17,11 @@ $('#buttonStartCall').hover(
     function(){
         navigator.mediaDevices.getUserMedia({audio:true})
         .then(function(){
-            document.querySelector("#buttonStartCall").style.opacity = '1';
-            document.querySelector("#buttonEndCall").style.opacity = '0.6';
+            if(!callInProgress)
+            {
+                document.querySelector("#buttonStartCall").style.opacity = '1';
+                document.querySelector("#buttonEndCall").style.opacity = '0.6';
+            }
             if(!callAllowed)
                 getDevices();
         })
@@ -37,13 +40,16 @@ $('#buttonStartCall').hover(
 $('#buttonStartCall').click(function(){
     if(callAllowed)
     {
-        document.querySelector('#buttonStartCall').style.opacity='0.6';
-        document.querySelector('#buttonEndCall').style.opacity='1';
-        for(var i = 0; i < 3; i++)
-            $('.caller__avatar__circle_'+i).show(500);
-        totalSeconds = 0;
-        timeInterval = setInterval(timer,1000);//update timer each second   
-        callInProgress = true;
+        if(!callInProgress)
+        {
+            document.querySelector('#buttonStartCall').style.opacity='0.6';
+            document.querySelector('#buttonEndCall').style.opacity='1';
+            for(var i = 0; i < 3; i++)
+                $('.caller__avatar__circle_'+i).show(500);
+            totalSeconds = 0;
+            timeInterval = setInterval(timer,1000);//update timer each second   
+            callInProgress = true;
+        }
     }
 });
 
